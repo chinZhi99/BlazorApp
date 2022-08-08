@@ -1,0 +1,39 @@
+﻿@page "/JsonPlaceHolder"
+
+@using RestSharp
+@using RestSharp.Serializers
+
+<PageTitle>jsonPlaceHolder</PageTitle>
+
+<h3>jsonPlaceHolder</h3>
+
+<input type="button" class="btn btn-primary" value="TEST" @onclick="() => doSomething()"/>
+
+
+@code {
+    protected void doSomething()
+    {
+        var client = new RestClient("https://jsonplaceholder.typicode.com/posts");
+
+        var post = new MyPost()
+            {
+                Title = "My Title",
+                Body = "My Body"
+            };
+
+            var request = new RestRequest();
+            request.AddJsonBody(post);
+
+            var response = client.PostAsync(request).Result;
+
+            Console.WriteLine(response.StatusCode.ToString() + " \n" + response.Content.ToString());
+
+            Console.Read();       
+    }
+
+    public class MyPost
+    {
+        public string Title { get; set; }
+        public string Body { get; set; }
+    }
+}

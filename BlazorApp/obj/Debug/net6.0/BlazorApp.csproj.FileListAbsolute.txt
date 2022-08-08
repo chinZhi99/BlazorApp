@@ -25,3 +25,5 @@ C:\CodeZhi\BlazorApp\BlazorApp\obj\Debug\net6.0\refint\BlazorApp.dll
 C:\CodeZhi\BlazorApp\BlazorApp\obj\Debug\net6.0\BlazorApp.pdb
 C:\CodeZhi\BlazorApp\BlazorApp\obj\Debug\net6.0\BlazorApp.genruntimeconfig.cache
 C:\CodeZhi\BlazorApp\BlazorApp\obj\Debug\net6.0\ref\BlazorApp.dll
+C:\CodeZhi\BlazorApp\BlazorApp\bin\Debug\net6.0\RestSharp.dll
+C:\CodeZhi\BlazorApp\BlazorApp\obj\Debug\net6.0\BlazorApp.csproj.CopyComplete

@@ -1,0 +1,54 @@
+﻿@page "/MESLotGetStatus"
+
+@using RestSharp
+@using RestSharp.Serializers
+
+@attribute [AllowAnonymous]
+
+<PageTitle>MESLotGetStatus</PageTitle>
+
+<h3>MESLotGetStatus</h3>
+
+<input type="button" class="btn btn-primary" value="TEST" @onclick="() => doSomething()"/>
+
+@code {
+    protected void doSomething()
+    {
+        var options = new RestClientOptions("http://143.182.152.194/FAIMRestRouterService/FAIMRestRouterService.svc/ProcessRestXML")
+        {
+                ThrowOnAnyError = true,
+                //MaxTimeout = 10000
+        };
+        var client = new RestClient(options);
+        var request = new RestRequest();
+        string body = @"<Envelope>
+  <Header>
+    <OperationName>MES.LotGetStatus</OperationName> 
+    <UserContext>
+      <UserID>username</UserID>
+    </UserContext>
+    <Properties>
+      <Property Name='BackendEnv' Value='' /> 
+      <Property Name='Facility' Value='A04' />
+	  <Property Name='UserName' Value='' />
+	  <Property Name='Password' Value='' />
+    </Properties> 
+  </Header> 
+  <Body>
+    <OperationInfo OperationName='MES.LotGetStatus'>
+      <LotContext>
+        <LotID>TESTLOTA</LotID> 
+      </LotContext>
+    </OperationInfo>
+  </Body>
+</Envelope>";
+
+        //Console.WriteLine(body);
+        //request.AddStringBody(body, ContentType.Xml);
+        Console.WriteLine(request);
+
+        var response = client.PostAsync(request).Result;
+        Console.WriteLine(response.StatusCode.ToString() + " " + response.Content.ToString());
+        Console.Read();
+    }
+}

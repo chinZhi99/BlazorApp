@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "bQ94mbCsz10cuhFF0enCX3QCS/o7cNVOtmmk9utOQy/X3XP54GeAdAi+gVRoFrkcG2IYmSLP5hPxL1dgUXaebA==",
+  "dgSpecHash": "8hBiFCmr4MhA781bUltZ7KDetImwlmq/BijSxsEOLJO2CHsEWIiJomIuYKnnD6sbuv3kzbfYDiTKXcm9QKTGww==",
   "success": true,
   "projectFilePath": "C:\\CodeZhi\\BlazorApp\\BlazorApp\\BlazorApp.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\chinzhil\\.nuget\\packages\\restsharp\\108.0.1\\restsharp.108.0.1.nupkg.sha512"
+  ],
   "logs": []
 }
