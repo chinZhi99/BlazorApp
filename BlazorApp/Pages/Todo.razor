@@ -25,10 +25,14 @@
 
     private void DeleteTodo(int id)
     {
-        if (id != null)
-        {
-            todos = todos.Where(todo => todo.Id != id).ToList();
-        }
+        if (id <= 0) return;
+
+        //method 1
+        todos = todos.Where(todo => todo.Id != id).ToList();
+
+        //method 2
+        //var todoToRemove = todos.Single(todo => todo.Id == id);
+        //todos.Remove(todoToRemove);
     }
 
     private void AddTodo()
