@@ -21,8 +21,15 @@
                 Body = "My Body"
             };
 
+        string postString = "{Title:\"My Title2\", Body:\"My Body2\"}";
+
             var request = new RestRequest();
+
+            Console.WriteLine(post);
+            Console.WriteLine(postString);
+
             request.AddJsonBody(post);
+            //request.AddStringBody(postString, ContentType.Json);
 
             var response = client.PostAsync(request).Result;
 

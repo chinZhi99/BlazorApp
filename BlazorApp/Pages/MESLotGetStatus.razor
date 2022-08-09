@@ -3,13 +3,16 @@
 @using RestSharp
 @using RestSharp.Serializers
 
+@using BlazorApp.Services
+@using System.Xml
+
 @attribute [AllowAnonymous]
 
 <PageTitle>MESLotGetStatus</PageTitle>
 
 <h3>MESLotGetStatus</h3>
 
-<input type="button" class="btn btn-primary" value="TEST" @onclick="() => doSomething()"/>
+<input type="button" class="btn btn-primary" value="TEST" @onclick=" () => doSomething()"/>
 
 @code {
     protected void doSomething()
@@ -17,6 +20,7 @@
         var options = new RestClientOptions("http://143.182.152.194/FAIMRestRouterService/FAIMRestRouterService.svc/ProcessRestXML")
         {
                 ThrowOnAnyError = true,
+                UseDefaultCredentials = true
                 //MaxTimeout = 10000
         };
         var client = new RestClient(options);
@@ -43,8 +47,14 @@
   </Body>
 </Envelope>";
 
-        //Console.WriteLine(body);
+        //convert input payload to xml doc
+        XmlDocument xmlBody = new XmlDocument();
+        xmlBody.LoadXml(body);
+        Console.WriteLine(xmlBody);
+
+        Console.WriteLine(body);
         //request.AddStringBody(body, ContentType.Xml);
+        request.AddXmlBody(xmlBody);
         Console.WriteLine(request);
 
         var response = client.PostAsync(request).Result;
